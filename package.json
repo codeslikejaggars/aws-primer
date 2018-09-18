@@ -1,0 +1,20 @@
+{
+  "name": "api",
+  "version": "1.0.0",
+  "description": "Simple S3 proxy API",
+  "main": "index.js",
+  "scripts": {
+    "start": "micro --listen tcp://0.0.0.0:80",
+    "dev": "micro-dev --listen tcp://0.0.0.0:80"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "aws-sdk": "^2.315.0",
+    "micro": "^9.3.3",
+    "micro-cors": "^0.1.0"
+  },
+  "devDependencies": {
+    "micro-dev": "^3.0.0"
+  }
+}

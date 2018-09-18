@@ -1,0 +1,43 @@
+<html>
+    <head>
+        <style type=text/css>
+            .dynamic {
+                font-weight: bold;
+            }
+            .error {
+                color: red;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="main">
+            <p id="message">Hello static world!</p>
+            <button id="button">Call API</button>
+        </div>
+        <script type=text/javascript>
+            (function() {
+                const API_BASE = 'http://ec2-52-10-120-147.us-west-2.compute.amazonaws.com'
+                
+                const message = document.getElementById('message')
+                const button = document.getElementById('button')
+
+                const updateMessage = (messageText, ...classes) => {
+                    message.innerText = messageText
+                    message.className = classes.join(' ')
+                }
+
+                const onButtonClick = async () => {
+                    try {
+                        const response = await fetch(`${API_BASE}/data`)
+                        const body = await response.json()
+                        updateMessage(body.message, 'dynamic')
+                    } catch (err) {
+                        updateMessage(`ERROR: ${err.message}`, 'error')
+                    }
+                }
+
+                button.onclick = onButtonClick 
+            })()
+        </script>
+    </body>
+</html>
