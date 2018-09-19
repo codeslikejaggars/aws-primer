@@ -2,13 +2,13 @@
   "name": "api",
   "version": "1.0.0",
   "description": "Simple S3 proxy API",
-  "main": "index.js",
+  "main": "api.js",
   "scripts": {
-    "start": "micro --listen tcp://0.0.0.0:80",
-    "dev": "micro-dev --listen tcp://0.0.0.0:80"
+    "start": "micro --listen tcp://0.0.0.0:3000",
+    "dev": "micro-dev --listen tcp://0.0.0.0:3000"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Nick Jaggars",
+  "license": "MIT",
   "dependencies": {
     "aws-sdk": "^2.315.0",
     "micro": "^9.3.3",

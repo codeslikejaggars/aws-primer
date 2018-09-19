@@ -15,29 +15,27 @@
             <button id="button">Call API</button>
         </div>
         <script type=text/javascript>
-            (function() {
-                const API_BASE = 'http://ec2-52-10-120-147.us-west-2.compute.amazonaws.com'
-                
-                const message = document.getElementById('message')
-                const button = document.getElementById('button')
+            const API_BASE_URL = 'http://foo:3000'
+            
+            const message = document.getElementById('message')
+            const button = document.getElementById('button')
 
-                const updateMessage = (messageText, ...classes) => {
-                    message.innerText = messageText
-                    message.className = classes.join(' ')
+            const updateMessage = (messageText, ...classes) => {
+                message.innerText = messageText
+                message.className = classes.join(' ')
+            }
+
+            const onButtonClick = async () => {
+                try {
+                    const response = await fetch(`${API_BASE_URL}/data`)
+                    const body = await response.json()
+                    updateMessage(body.message, 'dynamic')
+                } catch (err) {
+                    updateMessage(`ERROR: ${err.message}`, 'error')
                 }
+            }
 
-                const onButtonClick = async () => {
-                    try {
-                        const response = await fetch(`${API_BASE}/data`)
-                        const body = await response.json()
-                        updateMessage(body.message, 'dynamic')
-                    } catch (err) {
-                        updateMessage(`ERROR: ${err.message}`, 'error')
-                    }
-                }
-
-                button.onclick = onButtonClick 
-            })()
+            button.onclick = onButtonClick 
         </script>
     </body>
 </html>
