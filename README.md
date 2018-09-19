@@ -18,7 +18,9 @@ a. Install AWS CLI:
 `pip install --user awscli`
 
 b. Obtain AWS IAM credentials with permissions to read and write to S3, and launch new EC2 instances
+
 c. Generate and install access keys to `~/.aws/credentials` using `aws config` 
+
 d. Setup SSH: Obtain a SSH key `aws-primer.pem`. Move the key to `~/.ssh/aws-primer.pem`. Run this command to restrict access to this key: `chmod 600 ~/.ssh/aws-primer.pem`. Add this key to your SSH authentication agent: `ssh-add ~/.ssh/aws-primer.pem`
 
 
