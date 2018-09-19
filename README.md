@@ -64,7 +64,7 @@ Install Node and set up the API project
 	cd ./aws-primer
 
 	npm install
-	npm dev
+	npm start
 
 
 #### 2. Deploy a static website to S3
@@ -82,7 +82,7 @@ Then, deploy to S3:
 	aws s3 cp ./data.json s3://aws-primer-20180914
 
 	# Configure the bucket as a website
-	aws s3 website s3://my-bucket-name --index-file index.html
+	aws s3 website s3://my-bucket-name --index-document index.html
 
 	# Fetch the file to ensure it works
 	curl http://aws-primer-20180914.s3-website-us-west-2.amazonaws.com/index.html

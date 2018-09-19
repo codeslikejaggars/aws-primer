@@ -5,7 +5,7 @@
   "main": "api.js",
   "scripts": {
     "start": "micro --listen tcp://0.0.0.0:3000",
-    "dev": "micro-dev --listen tcp://0.0.0.0:3000"
+    "dev": "micro-dev"
   },
   "author": "Nick Jaggars",
   "license": "MIT",
